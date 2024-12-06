@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>beLoved | Organization to-do list</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="icon" href="{% static 'img/logo.ico' %}">
+</head>
+
+<body class="body">
+
+    <nav class="custom-navbar">
+        <div class="navbar-container">
+            <a class="navbar-brand" href="#">
+                <img src="{% static 'img/logo.png' %}" alt="Logo">
+            </a>
+            <ul class="navbar-links" id="navbarMenu">
+                <li><a href="#">beLoved</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Texto promocional -->
+        <div class="content">
+            <h1>Stay Organized with Our To-Do List App</h1>
+            <p>Keep track of your tasks effortlessly with our intuitive tool. Create, prioritize, and set reminders
+                to never miss a thing. Designed to simplify your routine and help you achieve your goals anytime,
+                anywhere. Start organizing your life today!</p>
+
+            <div class="download-buttons">
+                {% if request.user_agent.is_pc %}
+                <h2>Download it here:</h2>
+                <a href="#">
+                    <img style="margin-left: 20px;" src="{% static 'img/qr.png' %}" alt="Download the apk of beLoved"
+                        width="200" height="200">
+                </a>
+                {% elif request.user_agent.is_mobile %}
+                <h2>Download it here:</h2>
+                <a href="https://github.com/cosyfps/be-loved" target="_blank" class="mobile-link">Download the APK for
+                    your mobile
+                    device</a>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Imagen del móvil -->
+        <div class="image-container">
+            <img src="{% static 'img/mobile.png' %}" alt="Mobile app screenshot" class="mobile-image">
+        </div>
+    </div>
+
+    <footer>
+        <div>
+            © 2024 All rights reserved.
+        </div>
+    </footer>
+
+</body>
+
+</html>
